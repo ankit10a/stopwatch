@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JavaScript Set S1#15</title>
+</head>
+<body>
+	<div class="stopwatch">
+            <div class="controls">
+                <button onclick="start()">Start</button>
+                <button onclick="stop()">Stop</button>
+            </div>
+            <div>Time : <span id="sec">0</span>.<span id="milisec">000</span></div>
+           
+</body>
+<script type="text/javascript">
+	var x;
+	var sec = document.getElementById('seconds');
+	var centisec = document.getElementById('centiseconds');
+	function start() {
+		reset();
+	  x = setInterval(timer, 1);
+	} 
+
+	function stop() {
+	var time = sec+"."+milisec;
+	var Time = +time;
+	var msg ="";
+		if(0.95<=Time || Time <=1.05)
+		msg = "Excellent.This  was	awesome";
+		if(0.9<=Time || Time <=1.1)
+		msg = "	Very	Good.	Take	a	shot	at	excellent";
+		if(0.8<=Time || Time <=1.2)
+		msg = "	Its	Ok.	You	can	do	better";
+		if(Time>=1.201 || Time<=0.940 ){
+		 	msg ="Not	a	great	attempt.	Try	again";
+		 }
+		 clearInterval(x);	
+		alert("your stop time is" +time+" "+msg);
+	  
+	} 
+var milisec = 0;
+var sec = 0; 
+var miliSecOut = 0;
+
+function timer() {
+  // miliSecOut = checkTime(milisec);
+  // secOut = checkTime(sec);
+ 
+  milisec = milisec + 1;
+ 
+  if (milisec == 1000) {
+    milisec = 0;
+    sec = ++sec;
+  }
+
+  document.getElementById("milisec").innerHTML = milisec;
+  document.getElementById("sec").innerHTML = sec;
+  }
+//   function checkTime(i) {
+//   if (i < 10) {
+//     i = "0" + i;
+//   }
+//   return i;
+// }
+function reset() {
+  milisec = 0;
+  sec = 0;
+
+}
+
+</script>
+</html>
